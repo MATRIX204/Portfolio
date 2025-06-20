@@ -1038,7 +1038,7 @@ body {
     
     .content-area {
         padding: 30px;
-        padding-bottom: calc(var(--mobile-nav-height) + 20px); /* Add space for mobile nav */
+        padding-bottom: calc(var(--mobile-nav-height) + 65px); /* Add space for mobile nav */
     }
     
     .contact-content {
@@ -1075,7 +1075,7 @@ body {
     /* Adjust content area padding for better mobile viewing */
     .content-area {
         padding: 20px;
-        padding-bottom: calc(var(--mobile-nav-height) + 20px);
+        padding-bottom: calc(var(--mobile-nav-height) + 65px);
     }
 }
 
@@ -1101,13 +1101,13 @@ body {
     /* Specific adjustments for content area */
     .content-area {
         padding: 15px;
-        padding-bottom: calc(var(--mobile-nav-height) + 15px);
+        padding-bottom: calc(var(--mobile-nav-height) + 65px);
     }
     
     /* Ensure last elements are visible */
     .resume-section:last-child,
     .project-card:last-child,
     .contact-item:last-child {
-        margin-bottom: calc(var(--mobile-nav-height) + 20px);
+        margin-bottom: calc(var(--mobile-nav-height) + 200px);
     }
 }
