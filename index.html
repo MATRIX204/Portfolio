@@ -1,456 +1,416 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darshil Soni | Portfolio</title>
-    <link rel="icon" href="images/logo.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Darshil Soni Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: project-first portfolio. Hero, two-column project grid with monochrome covers, then compact info sections. */
+  :root {
+    --bg: #ffffff;
+    --fg: #0b0b0b;
+    --muted: #5c5c5c;
+    --line: #e3e3e3;
+    --panel: #f5f5f5;
+    --on-fg: #ffffff;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0b0b; --fg: #f4f4f4; --muted: #a3a3a3; --line: #2a2a2a; --panel: #141414; --on-fg: #0b0b0b;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0b0b; --fg: #f4f4f4; --muted: #a3a3a3; --line: #2a2a2a; --panel: #141414; --on-fg: #0b0b0b;
+    color-scheme: dark;
+  }
 
-<body>
-    <!-- Animated background elements -->
-    <div class="bg-elements">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="triangle"></div>
-    </div>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-block: 28px 48px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 
-    <!-- Side Menu (consistent across all sections) -->
-    <aside class="side-menu">
-        <div class="menu-header">
-            <img src="images/Profile1.jpg" alt="Darshil Soni" class="menu-photo">
-            <div class="menu-title">Darshil Soni</div>
-        </div>
-        <nav class="menu-nav">
-            <ul>
-                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About Me</a></li>
-                <li><a href="#resume" class="nav-link"><i class="fas fa-file-alt"></i> Resume</a></li>
-                <li><a href="#projects" class="nav-link"><i class="fas fa-code"></i> Projects</a></li>
-                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-        </nav>
-        <div class="menu-footer">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/darshil-soni-175442306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i>
-                </a>
+  .eyebrow { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
-                <a href="https://github.com/MATRIX204"><i class="fab fa-github"></i></a>
-                <a href="https://youtube.com/@sketch_by_darshil?si=-GBcyZLRmQHmRKHr"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/sketch_by_darshil?igsh=MWd4am9wbXdpdjB6dA=="><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </aside>
+  /* Top bar */
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px 24px; padding-bottom: 18px; border-bottom: 1px solid var(--fg); }
+  .bar strong { font-weight: 600; letter-spacing: -0.01em; }
+  .bar nav { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+  .bar nav a { text-decoration: none; font-size: 14px; color: var(--muted); }
+  .bar nav a:hover { color: var(--fg); text-decoration: underline; }
 
-    <!-- Main Content Sections -->
-    <main class="main-content">
-        <!-- Home Section -->
-        <section id="home" class="fullpage-section">
-            <div class="home-content">
-                <div class="home-text">
-                    <h1 class="animated-text">Hello there, <span>I'M Darshil Soni</span></h1>
-                    <p class="typewriter">Creative Developer & Designer</p>
-                    <button id="about-me-btn" class="glow-button">More About Me <i class="fas fa-arrow-down"></i></button>
-                </div>
-                <div class="home-image">
-                    <img src="images/Profile.jpg" alt="Darshil Soni" class="profile-photo">
-                    <div class="photo-border"></div>
-                </div>
-            </div>
-        </section>
+  /* Hero */
+  .hero { padding-block: 88px 72px; }
+  .hero .eyebrow { margin: 0 0 20px; }
+  h1 { font-size: clamp(44px, 9vw, 92px); line-height: 1; font-weight: 600; letter-spacing: -0.04em; margin: 0 0 24px; text-wrap: balance; }
+  .lead { font-size: clamp(19px, 2.6vw, 26px); line-height: 1.4; max-width: 30em; margin: 0 0 14px; letter-spacing: -0.01em; text-wrap: pretty; }
+  .sub { color: var(--muted); max-width: 40em; margin: 0 0 32px; text-wrap: pretty; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+  .btn { display: inline-block; padding: 12px 22px; font-size: 15px; font-weight: 500; text-decoration: none; border: 1px solid var(--fg); border-radius: 2px; }
+  .btn.solid { background: var(--fg); color: var(--on-fg); }
+  .btn.solid:hover { opacity: 0.85; }
+  .btn.ghost:hover { background: var(--fg); color: var(--on-fg); }
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 24px; border-top: 1px solid var(--line); padding-top: 24px; margin: 0; }
+  .facts dt { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+  .facts dd { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
 
-        <!-- About Section -->
-        <section id="about" class="fullpage-section">
-            <div class="section-container">
-                <div class="content-area">
-                    <h2 class="section-title">About <span>Me</span></h2>
-                    <div class="about-content">
-                        <p>I'm a passionate developer and designer with expertise in creating beautiful, functional digital experiences. With a keen eye for detail and a love for clean code, I bring ideas to life through technology.</p>
+  /* Sections */
+  .block { padding-block: 64px; border-top: 1px solid var(--fg); }
+  .block h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; margin: 0 0 8px; }
+  .block > .intro-text { color: var(--muted); max-width: 44em; margin: 0 0 40px; }
 
-                        <div class="skills-section">
-                            <h3>My Skills of Programming</h3>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <div class="skill-name">HTML/CSS</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 95%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">JavaScript</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 50%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">C Programming</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 85%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">C++ Programming</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 90%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Java Programming</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 75%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Python Programming</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 90%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Flutter for mobile apk</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 80%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">SQL for Database</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 70%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Vibe Coding</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 60%;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <br><br>
+  /* Projects */
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+  .card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); overflow: hidden; transition: border-color .15s; }
+  .card:hover { border-color: var(--fg); }
+  .cover { aspect-ratio: 8 / 5; background: var(--panel); border-bottom: 1px solid var(--line); color: var(--fg); display: block; width: 100%; }
+  .cover svg { display: block; width: 100%; height: 100%; }
+  .card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .card h3 { margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
+  .tag-line { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); letter-spacing: 0.02em; margin: 0; }
+  .card p.desc { margin: 0; color: var(--muted); text-wrap: pretty; }
+  .card ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .card li { margin-bottom: 4px; }
+  .card .link { margin-top: auto; padding-top: 6px; font-size: 15px; font-weight: 500; }
 
-                        <div class="skills-section">
-                            <h3>My Skills of Video editing/Graphic Designing</h3>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <div class="skill-name">Adobe After Effects</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 95%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Adobe Photoshop</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 60%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Adobe Illustrator</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 75%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-name">Blender (3D software)</div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 95%;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  .plist { border-top: 1px solid var(--line); }
+  .proj { display: grid; grid-template-columns: 184px minmax(0, 1fr); gap: 28px; padding-block: 24px; border-bottom: 1px solid var(--line); align-items: start; }
+  .proj .cover { aspect-ratio: 8 / 5; border: 1px solid var(--line); border-radius: 3px; }
+  .pbody { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .phead { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 16px; }
+  .proj h3 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; }
+  .status { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  .proj .desc { margin: 0; color: var(--muted); max-width: 60ch; text-wrap: pretty; font-size: 15px; }
+  .plink { font-size: 14.5px; font-weight: 500; margin-top: 2px; width: fit-content; }
 
-        <!-- Resume Section -->
-        <section id="resume" class="fullpage-section">
-            <div class="section-container">
-                <div class="content-area">
-                    <h2 class="section-title">My <span>Resume</span></h2>
+  /* Info sections */
+  .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+  .two > div { min-width: 0; }
+  h3.label { margin: 0 0 18px; font-family: var(--font-mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .skills { margin: 0; display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px 20px; }
+  .skills dt { font-weight: 600; }
+  .skills dd { margin: 0; color: var(--muted); }
+  .row { padding-block: 20px; border-top: 1px solid var(--line); }
+  .row:first-of-type { border-top: 0; padding-top: 0; }
+  .row h4 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+  .row .meta { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .row p { margin: 8px 0 0; color: var(--muted); text-wrap: pretty; }
 
-                    <!-- NEW PART: Achievements section with link -->
-                    <div class="resume-section">
-                        <h3>Achievements</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h4>Google SkillBoost Profile</h4>
-                                <div class="timeline-date">Active since 2024</div>
-                                <p>Explore my verified certificates and skill badges earned through Google SkillBoost, covering topics like AI, Python, cloud fundamentals, and more.</p>
-                                
-                                <!-- Link to SkillBoost Profile -->
-                                <a href="https://www.cloudskillsboost.google/public_profiles/a744b6e1-7555-4d5c-823d-8c2d8621cfe6" target="_blank" style="color:#007bff; text-decoration:underline;">
-                                    View My Google SkillBoost Profile
-                                </a>
+  .roles { font-family: var(--font-mono); font-size: 13.5px; letter-spacing: 0.02em; color: var(--muted); max-width: 52em; margin: 12px 0 0; line-height: 1.8; }
+  .contact-mail { font-size: clamp(24px, 5vw, 44px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; margin: 8px 0 28px; overflow-wrap: anywhere; user-select: all; }
+  .contact-phone { font-size: clamp(18px, 3vw, 24px); font-weight: 500; letter-spacing: -0.01em; margin: -12px 0 28px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; user-select: all; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 16px; }
 
-                                <!-- Optional Logo Image -->
-                                <img src="https://cdn.qwiklabs.com/RQhZyhu6J%2FB6MoY2p4wAb4HWxjAuBOsmG71ZtUW9hUQ%3D" alt="Google SkillBoost" 
-                                    style="margin-top: 12px; max-width: 160px; display: block; border-radius: 8px;">
-                            </div>
-                                <div class="timeline-item" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                                <!-- Left: Image -->
-                                <div style="flex: 1; min-width: 200px; text-align: center;">
-                                    <img src="images/award.jpg" 
-                                        alt="TechCast Award News" 
-                                        style="
-                                            width: 100%;
-                                            max-width: 250px;
-                                            border-radius: 12px;
-                                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                                            transition: transform 0.3s ease;
-                                        "
-                                        onmouseover="this.style.transform='scale(1.05)'"
-                                        onmouseout="this.style.transform='scale(1)'"
-                                    >
-                                </div>
+  footer { padding-top: 24px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 
-                                <!-- Right: Content -->
-                                <div style="flex: 2; min-width: 250px;">
-                                    <h4>First Prize – TechCast Event</h4>
-                                    <div class="timeline-date">March 2024</div>
-                                    <p>Won First Prize in the TechCast event for innovative technical presentation and execution.</p>
-                                    <a href="https://divya.bhaskar.com/uIUmBnZfLLb" target="_blank" style="color:#007bff; text-decoration:underline;">
-                                        View News Article on Divya Bhaskar
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  /* Tablet */
+  @media (max-width: 1024px) {
+    body { font-size: 15.5px; }
+    .hero { padding-block: 64px 56px; }
+    .block { padding-block: 52px; }
+    .two { gap: 32px; }
+    .skills { grid-template-columns: 124px minmax(0, 1fr); gap: 12px 16px; }
+    .proj { grid-template-columns: 160px minmax(0, 1fr); gap: 22px; }
+  }
+  /* Large phone and small tablet */
+  @media (max-width: 760px) {
+    .two { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .skills { grid-template-columns: 140px minmax(0, 1fr); }
+  }
+  /* Phone */
+  @media (max-width: 600px) {
+    body { font-size: 15px; padding-block: 20px 36px; }
+    .bar { gap: 8px 16px; padding-bottom: 14px; }
+    .bar nav { gap: 0 4px; margin-left: -8px; }
+    .bar nav a { padding: 10px 8px; }
+    .hero { padding-block: 40px 40px; }
+    .hero .eyebrow { margin-bottom: 14px; }
+    h1 { letter-spacing: -0.035em; }
+    .sub { margin-bottom: 24px; }
+    .actions { flex-direction: column; margin-bottom: 36px; }
+    .btn { text-align: center; padding: 14px 20px; }
+    .facts { gap: 18px 16px; padding-top: 20px; }
+    .facts dt { font-size: 19px; }
+    .facts dd { font-size: 13px; }
+    .block { padding-block: 40px; }
+    .block > .intro-text { margin-bottom: 28px; }
+    .proj { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-block: 22px; }
+    .proj .cover { width: 150px; }
+    .skills { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+    .skills dd { margin-bottom: 12px; }
+    .plink, .contact-links a { display: inline-block; padding-block: 8px; }
+    .contact-links { gap: 0 24px; }
+    .contact-mail { font-size: clamp(20px, 6.4vw, 28px); margin-bottom: 22px; }
+    .contact-phone { margin-top: -8px; margin-bottom: 20px; }
+    .roles { font-size: 12.5px; line-height: 1.7; }
+    footer { padding-top: 20px; }
+  }
+  @media (max-width: 360px) {
+    .facts { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .card { transition: none; } }
+</style>
 
-
-                    <!-- END OF NEW PART -->
-
-                    <div class="resume-content">
-                        <div class="resume-section">
-                            <h3>Education</h3>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <h4>HIGHER SECONDARY CERTIFICATE</h4>
-                                    <div class="timeline-date">2022 - 2023</div>
-                                    <p>The H.B. Kapadia New High School, Memnagar</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <h4>Pursuing Integrated Master of Science in Information Technology (iMscit) (3rd year)</h4>
-                                    <div class="timeline-date">2025 - 2026</div>
-                                    <p>JG UNIVERSITY</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Professional Skillset</h3>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <h4>Software & Programming Expertise</h4>
-                                    <p>I have hands-on experience with a wide range of programming languages including C, C++, Java, Python, JavaScript, HTML, CSS, and Flutter, along with knowledge of PL/SQL for database management. I am proficient in using spreadsheet tools such as Microsoft Excel, Google Sheets, and OpenOffice Calc for data organization and analysis. Additionally, I am skilled in working with Microsoft Office applications like PowerPoint and Word for creating presentations and documentation. I also have creative expertise in Adobe software, including Adobe After Effects, Photoshop, and Illustrator, which I use for visual design and editing. Furthermore, I am familiar with 3D computer graphics and animation using Blender.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <h4>Artistic Skills</h4>
-                                    <p>I am a self-taught artist specializing in graphite and charcoal portrait sketching, with a strong focus on realism, fine detailing, and expressive depth. Through continuous self-learning and hands-on practice, I have developed the ability to capture facial features, textures, and contrast with precision. I have created numerous custom portrait artworks, delivering high-quality, personalized pieces that reflect both technical skill and artistic sensitivity.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="download-btn">Download Resume <i class="fas fa-download"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Projects Section -->
-        <section id="projects" class="fullpage-section">
-            <div class="section-container">
-                <div class="content-area">
-                    <h2 class="section-title">My <span>Projects</span></h2>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/jarvis1.png" alt="Project 1">
-                            </div>
-                            <div class="project-info">
-                                <h3>The JARVIS - A virtual assistant</h3>
-                                <p>Developed a Python-based personal voice assistant capable of executing system commands, retrieving information, and interacting with applications using speech recognition and text-to-speech technologies.</p>
-                                <div class="project-tech">Python, face-speech recognition</div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/jarvis2.png" alt="Project 2">
-                            </div>
-                            <div class="project-info">
-                                <h3>The Ultimate JARVIS 2.0</h3>
-                                <p>An advanced Python-based voice assistant featuring a dynamic virtual interface and integrated database support for personalized responses, command history, and interactive user experience.</p>
-                                <div class="project-tech">Python, face-speech recognition, SQL database</div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/gesture .png" alt="Project 3">
-                            </div>
-                            <div class="project-info">
-                                <h3>Gesture Guardian Game</h3>
-                                <p>Designed and developed an interactive game using Python that leverages real-time hand gesture recognition to control gameplay, featuring four unique maps and an immersive user experience.</p>
-                                <div class="project-tech">Python, pygame , OpenCV, Mediapipe, SQL database</div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/main_bg.png" alt="Project 4">
-                            </div>
-                            <div class="project-info">
-                                <h3>Mobile Game - Ninja Ball</h3>
-                                <p>Created an action-packed endless runner game for Android using Flutter, where players control a ninja-themed ball to jump and dodge obstacles, featuring smooth gameplay, character selection, and real-time score tracking.</p>
-                                <div class="project-tech">Flutter, Dart</div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <a href="https://play.google.com/store/apps/details?id=com.game.tac_toe" target="_blank">
-                                    <img src="images/youtube.png" alt="Tic Twist Game">
-                                </a>
-                            </div>
-
-                            <div class="project-info">
-                                <h3>Mobile Game – Tic Twist</h3>
-                                <p>If you’ve played Tic Tac Toe before, you already know the classic pattern of endless draws.  
-                                In <strong>Tic Twist</strong>, that’s completely changed — every match ends with a clear winner.  
-                                With larger boards and strategic depth, the game feels fresh, challenging, and exciting.  
-                                Whether you want to sharpen your logic, play with friends, or battle online, Tic Twist delivers a unique and addictive experience.</p>
-
-                                <div class="project-tech">Flutter · Dart · Firebase</div>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <!-- Video Projects Section -->
-                    <div class="video-projects">
-                        <h3>Video Projects</h3>
-                        <div class="video-scroller">
-                            <div class="video-item">
-                                <div class="video-wrapper">
-                                    <iframe src="https://www.youtube.com/embed/rRCXoZilJuk" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <h4>2D Animation 1</h4>
-                            </div>
-                            <div class="video-item">
-                                <div class="video-wrapper">
-                                    <iframe src="https://www.youtube.com/embed/Zc1ZoFMkOoI" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <h4>2D Animation 2</h4>
-                            </div>
-                            <div class="video-item">
-                                <div class="video-wrapper">
-                                    <iframe src="https://www.youtube.com/embed/MhOF_bQIrxM" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <h4>2D Animation 3</h4>
-                            </div>
-                            <div class="video-item">
-                                <div class="video-wrapper">
-                                    <iframe src="https://www.youtube.com/embed/THjPJexBGAE" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <h4>3D Animation 1</h4>
-                            </div>
-                            <div class="video-item">
-                                <div class="video-wrapper">
-                                    <iframe src="https://www.youtube.com/embed/NKWtrGvPwvk" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <h4>3D Animation 2</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <!-- Image Gallery Section -->
-                    <div class="video-projects">
-                        <h3>Portrait Sketches</h3>
-                        <div class="video-scroller">
-                            <div class="art-item">
-                                <img src="images/sketch1.jpg" alt="Portrait 1" width="250" height="340">
-                                <h4>charcoal Artwork</h4>
-                            </div>
-                            <div class="art-item">
-                                <img src="images/sketch2.jpg" alt="Portrait 1" width="250" height="340">
-                                <h4>Graphite Artwork 1</h4>
-                            </div>
-                            <div class="art-item">
-                                <img src="images/sketch3.jpg" alt="Portrait 1" width="250" height="340">
-                                <h4>Graphite Artwork 2</h4>
-                            </div>
-                            <div class="art-item">
-                                <img src="images/sketch4.jpg" alt="Portrait 1" width="250" height="340">
-                                <h4>Graphite Artwork 3</h4>
-                            </div>
-                            <div class="art-item">
-                               <img src="images/sketch5.jpg" alt="Portrait 1" width="250" height="340">
-                                <h4>Pencil Color Artwork</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Contact Section -->
-        <section id="contact" class="fullpage-section">
-            <div class="section-container">
-                <div class="content-area">
-                    <h2 class="section-title">Get In <span>Touch</span></h2>
-                    <div class="contact-content">
-                        <div class="contact-info">
-                            <div class="contact-item big-contact">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <h3>Phone</h3>
-                                    <p>+91 9924537005</p>
-                                </div>
-                            </div>
-                            <div class="contact-item big-contact">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h3>Email</h3>
-                                    <p>darshilsoni2004@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="contact-form">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" placeholder="Your Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="form-group">
-                                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                                </div>
-                                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                            </form>
-                        </div> -->
-                    </div>
-                    <button class="download-btn1">Download Portfolio <i class="fas fa-download"></i></button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav">
-        <a href="#home" class="mobile-nav-link active"><i class="fas fa-home"></i> <span>Home</span></a>
-        <a href="#about" class="mobile-nav-link"><i class="fas fa-user"></i> <span>About</span></a>
-        <a href="#resume" class="mobile-nav-link"><i class="fas fa-file-alt"></i> <span>Resume</span></a>
-        <a href="#projects" class="mobile-nav-link"><i class="fas fa-code"></i> <span>Projects</span></a>
-        <a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope"></i> <span>Contact</span></a>
+<div class="wrap">
+  <header class="bar">
+    <strong>Darshil Soni</strong>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <script src="script.js"></script>
-</body>
-</html>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Software developer · Ahmedabad, India</p>
+      <h1>Darshil Soni</h1>
+      <p class="lead">I build mobile apps, backends and AI-powered products, and ship them to real users.</p>
+      <p class="sub">IT graduate skilled in Flutter, Python and full-stack development. Published a multiplayer game on Google Play and building apps that run local AI models without paid cloud APIs.</p>
+      <div class="actions">
+        <a class="btn solid" href="#work">View projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+      <dl class="facts">
+        <div><dt>8.9 / 10</dt><dd>CGPA, B.Sc. IT</dd></div>
+        <div><dt>3 apps and games</dt><dd>Published</dd></div>
+        <div><dt>Team of 6</dt><dd>Led at a hackathon</dd></div>
+        <div><dt>1st Rank</dt><dd>University Tech-Cast 2024</dd></div>
+      </dl>
+    </section>
+
+    <section class="block" id="work">
+      <h2>Selected work</h2>
+      <p class="intro-text">Apps, games and full-stack products, from client work shipped to the Play Store to AI tools running on my own machine.</p>
+
+      <div class="plist">
+        <article class="proj">
+          <div class="cover" role="img" aria-label="Tall phone screen with an image card and text lines">
+            <svg viewBox="0 0 400 250" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="152" y="14" width="96" height="222" rx="14"/>
+              <rect x="164" y="30" width="72" height="92" rx="6"/>
+              <path d="M164 108l22-24 18 16 14-12 18 20" opacity=".6"/>
+              <circle cx="216" cy="50" r="6"/>
+              <path d="M166 142h68M166 158h68M166 174h44" opacity=".6"/>
+              <rect x="166" y="196" width="68" height="20" rx="10"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="phead"><h3>BitoFact</h3><span class="status">Live</span></div>
+            <p class="tag-line">Flutter · Python · Local AI</p>
+            <p class="desc">Social knowledge-sharing and learning platform. Personalized facts, friend network, daily streaks, leaderboards and quizzes built from the facts each user has read.</p>
+            <a class="plink" href="https://play.google.com/store/apps/details?id=com.factoraapp.mobile">Google Play ↗</a>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="cover" role="img" aria-label="Phone showing a chat conversation">
+            <svg viewBox="0 0 400 250" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="150" y="20" width="100" height="210" rx="14"/>
+              <path d="M184 32h32" opacity=".5"/>
+              <rect x="164" y="56" width="58" height="26" rx="8"/>
+              <rect x="178" y="94" width="58" height="26" rx="8"/>
+              <rect x="164" y="132" width="44" height="26" rx="8"/>
+              <path d="M170 68h30M184 106h30M170 144h18" opacity=".55"/>
+              <rect x="162" y="196" width="76" height="22" rx="11"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="phead"><h3>AURA</h3><span class="status">In development</span></div>
+            <p class="tag-line">Flutter · Django REST · PostgreSQL · Qwen 2.5</p>
+            <p class="desc">Local AI personal assistant. Flutter app with a Django REST backend, running a Qwen 2.5 model locally through LM Studio.</p>
+            
+          </div>
+        </article>
+        <article class="proj">
+          <div class="cover" role="img" aria-label="Browser window with a meal builder and an order tracking bar">
+            <svg viewBox="0 0 400 250" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="60" y="40" width="280" height="170" rx="6"/>
+              <path d="M60 68h280"/>
+              <circle cx="76" cy="54" r="3"/><circle cx="90" cy="54" r="3"/><circle cx="104" cy="54" r="3"/>
+              <rect x="80" y="88" width="110" height="64" rx="4"/>
+              <path d="M92 104h60M92 118h82M92 132h44" opacity=".6"/>
+              <rect x="206" y="88" width="114" height="22" rx="4"/>
+              <rect x="206" y="120" width="114" height="22" rx="4"/>
+              <path d="M84 184h232" opacity=".35"/>
+              <path d="M84 184h140"/>
+              <circle cx="84" cy="184" r="5"/><circle cx="154" cy="184" r="5"/><circle cx="224" cy="184" r="5"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="phead"><h3>MealCraft</h3><span class="status">Live</span></div>
+            <p class="tag-line">Full-stack · Firebase</p>
+            <p class="desc">Meal crafting and food ordering website. Custom meals, real-time order tracking and an admin dashboard with delivery partner management.</p>
+            <a class="plink" href="https://matrix204.github.io/MealCraft/">Live site ↗</a>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="cover" role="img" aria-label="Tic-tac-toe board with X and O marks">
+            <svg viewBox="0 0 400 250" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M163 50v150M237 50v150M113 100h174M113 150h174" opacity=".9"/>
+              <path d="M128 62l22 22M150 62l-22 22"/>
+              <circle cx="200" cy="125" r="13"/>
+              <path d="M253 112l22 22M275 112l-22 22"/>
+              <circle cx="125" cy="175" r="0"/>
+              <circle cx="200" cy="175" r="0"/>
+              <path d="M128 162l22 22M150 162l-22 22" opacity="0"/>
+              <circle cx="275" cy="75" r="13"/>
+              <path d="M178 162l22 22M200 162l-22 22" opacity="0"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="phead"><h3>Tic Twist</h3><span class="status">Live</span></div>
+            <p class="tag-line">Flutter · Firebase</p>
+            <p class="desc">Multiplayer tic-tac-toe with bot mode and online rooms for up to four players. 950+ installs, 5.0 rating.</p>
+            <a class="plink" href="https://play.google.com/store/apps/details?id=com.game.tac_toe">Google Play ↗</a>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="cover" role="img" aria-label="Camera frame with tracked hand points">
+            <svg viewBox="0 0 400 250" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M90 78V52h26M310 78V52h-26M90 172v26h26M310 172v26h-26"/>
+              <path d="M200 190l-10-38M200 190l12-38M190 152l-18-34M190 152l-2-44M190 152l12-42M212 152l22-34" opacity=".7"/>
+              <circle cx="200" cy="190" r="6"/>
+              <circle cx="190" cy="152" r="4"/><circle cx="212" cy="152" r="4"/>
+              <circle cx="172" cy="118" r="4"/><circle cx="188" cy="108" r="4"/><circle cx="202" cy="110" r="4"/><circle cx="234" cy="118" r="4"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="phead"><h3>Gesture Guardian</h3><span class="status">Project</span></div>
+            <p class="tag-line">Python · OpenCV · MediaPipe · SQLite</p>
+            <p class="desc">Camera-based game controlled by real-time hand tracking. Presented at University Tech-Cast.</p>
+            
+          </div>
+        </article>
+        <article class="proj">
+          <div class="cover" role="img" aria-label="Balance scale">
+            <svg viewBox="0 0 400 250" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M200 60v120M170 180h60M200 76h-64M200 76h64"/>
+              <path d="M136 76l-22 44h44zM264 76l-22 44h44z" opacity=".8"/>
+              <path d="M114 120a22 8 0 0 0 44 0M242 120a22 8 0 0 0 44 0" opacity=".8"/>
+              <circle cx="200" cy="60" r="5"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="phead"><h3>Law &amp; Constitution AI Chatbot</h3><span class="status">Project</span></div>
+            <p class="tag-line">Flutter · Firebase · Gemini API</p>
+            <p class="desc">Hackathon AI assistant for questions on Indian law and the Constitution. Led a team of six.</p>
+            
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="about">
+      <h2>About</h2>
+      <p class="intro-text">IT graduate from JG University, Ahmedabad. I like building complete products, from the interface to the backend to the store listing.</p>
+      <div class="two">
+        <div>
+          <h3 class="label">Skills</h3>
+          <dl class="skills">
+            <dt>Languages</dt><dd>C, C++, Java, Python, Dart</dd>
+            <dt>App development</dt><dd>Flutter, Android Studio, Firebase</dd>
+            <dt>Web</dt><dd>HTML, CSS, JavaScript</dd>
+            <dt>Backend</dt><dd>Django, Django REST Framework, REST APIs</dd>
+            <dt>Databases</dt><dd>MySQL, SQLite, PostgreSQL, Firebase</dd>
+            <dt>AI and vision</dt><dd>Qwen 2.5, OpenCV, MediaPipe, LM Studio</dd>
+            <dt>Tools</dt><dd>Git, GitHub</dd>
+            <dt>Core</dt><dd>OOP, Data Structures and Algorithms</dd>
+          </dl>
+        </div>
+        <div>
+          <h3 class="label">Education</h3>
+          <div class="row">
+            <h4>B.Sc. Information Technology</h4>
+            <div class="meta">JG University · 2023 to 2026</div>
+            <p>CGPA 8.9 / 10</p>
+          </div>
+          <div class="row">
+            <h4>Higher Secondary (XII, Commerce)</h4>
+            <div class="meta">HBK Memnagar · 2022 to 2023</div>
+            <p>State Board · 74%</p>
+          </div>
+          <div class="row">
+            <h4>Secondary (X)</h4>
+            <div class="meta">Vinay Vidhya Mandir · 2020 to 2021</div>
+            <p>State Board · 70%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="experience">
+      <h2>Experience</h2>
+      <p class="intro-text">Full-time work and freelance projects.</p>
+      <div class="two">
+        <div>
+          <div class="row">
+            <h4>Full Stack Developer</h4>
+            <div class="meta">GRADS · Hybrid · Sep 2025 to Sep 2026</div>
+            <p>Full stack development in a hybrid role.</p>
+          </div>
+          <div class="row">
+            <h4>Flutter App Developer, Tic Twist</h4>
+            <div class="meta">Freelance · Google Play Store</div>
+            <p>Built and shipped a multiplayer game for an independent client, from requirements to Play Store deployment. Implemented bot mode, local multiplayer and real-time online rooms for up to four players using Firebase.</p>
+          </div>
+          <div class="row">
+            <h4>Freelance Video Designer, 2D Advertisements</h4>
+            <div class="meta">After Effects · Illustrator</div>
+            <p>Created 2D advertisement videos for paying clients, managing requirements, revisions and on-time delivery.</p>
+            <p><a href="https://vecta2d.netlify.app">View video portfolio ↗</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="label">Achievements</h3>
+          <div class="row">
+            <h4>1st Rank, University Tech-Cast</h4>
+            <div class="meta">2024</div>
+            <p>For The Ultimate JARVIS, a Python virtual assistant.</p>
+          </div>
+          <div class="row">
+            <h4>Gold Medal and 2nd Runner-Up Trophy</h4>
+            <div class="meta">2019</div>
+            <p>National Rubik's Cube Championship (ICA). Self-taught.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Open to work.</h2>
+      <p class="roles">Software Engineer · Full Stack Developer · Mobile App Developer (Flutter) · Backend Developer · AI Application Developer</p>
+      <p class="contact-mail">darshilsoni2004@gmail.com</p>
+      <p class="contact-phone"><span class="eyebrow">Mobile</span> +91 99245 37005</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/darshil-soni-175442306">LinkedIn ↗</a>
+        <a href="https://github.com/MATRIX204">GitHub ↗</a>
+        <a href="https://vecta2d.netlify.app">2D video portfolio ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="eyebrow">
+    <span>Darshil Soni</span>
+    <span>Ahmedabad, Gujarat, India</span>
+  </footer>
+</div>
+
+</body></html>
